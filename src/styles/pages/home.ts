@@ -5,10 +5,10 @@ export const HomeContainer = styled("main", {
   width: "100%",
   maxWidth: "calc(100vw - ((100vw - 1180px) /2))",
   marginLeft: "auto",
-  minHeight: 400,
+  minHeight: 450,
 })
 
-export const Product = styled("a", {
+export const Product = styled("div", {
   background: "$white",
   borderRadius: 8,
   cursor: "pointer",
@@ -50,12 +50,13 @@ export const Product = styled("a", {
 
     strong: {
       fontSize: "$lg",
+      color: "$gray300",
     },
 
     span: {
       fontSize: "#xl",
       fontWeight: "bold",
-      color: "$green",
+      color: "$gray300",
     },
   },
 
