@@ -5,7 +5,7 @@ export const ProductContainer = styled("main", {
   gridTemplateColumns: "1fr 1fr",
   alignItems: "stretch",
   justifyItems: "center",
-  gap: "4rem",
+  gap: "1rem",
   margin: "0 auto",
 })
 
@@ -27,6 +27,7 @@ export const ImageContainer = styled("div", {
 export const ProductDetails = styled("div", {
   display: "flex",
   flexDirection: "column",
+  width: "80%",
 
   h1: {
     fontSize: "$2xl",
