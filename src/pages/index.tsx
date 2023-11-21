@@ -3,6 +3,7 @@ import { HomeContainer, Product } from "../styles/pages/home"
 import { useKeenSlider } from "keen-slider/react"
 import Link from "next/link"
 import "keen-slider/keen-slider.min.css"
+import { useMediaQuery } from "react-responsive"
 import { GetStaticProps } from "next"
 import { stripe } from "../lib/stripe"
 import Stripe from "stripe"
@@ -17,12 +18,16 @@ interface HomeProps {
 }
 
 export default function Home({ products }: HomeProps) {
+  const isMobile = useMediaQuery({ maxWidth: 480 })
+  const slideCount = isMobile ? 1 : 3
+  const slideSpacing = isMobile ? 15 : 48
   const [sliderRef] = useKeenSlider({
     slides: {
-      perView: 3,
-      spacing: 48,
+      perView: slideCount,
+      spacing: slideSpacing,
     },
   })
+
   return (
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map((product) => {

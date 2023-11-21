@@ -4,9 +4,15 @@ export const ProductContainer = styled("main", {
   display: "grid",
   gridTemplateColumns: "1fr 1fr",
   alignItems: "stretch",
-  justifyItems: "center",
+  justifyItems: "stretch",
   gap: "1rem",
   margin: "0 auto",
+  "@media (max-width: 480px)": {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 })
 
 export const ImageContainer = styled("div", {
@@ -21,6 +27,9 @@ export const ImageContainer = styled("div", {
   justifyContent: "center",
   img: {
     objectFit: "cover",
+  },
+  "@media (max-width: 480px)": {
+    maxWidth: 350,
   },
 })
 
