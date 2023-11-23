@@ -8,7 +8,7 @@ export const globalStyle = globalCss({
   },
   body: {
     backgroundColor: "$gray100",
-    marginLeft: "5rem",
+    marginLeft: "3rem",
     color: "$gray300",
     "-webkit-font-smoothing": "antialiased",
     "@media (max-width: 480px)": {
@@ -18,5 +18,9 @@ export const globalStyle = globalCss({
   "body,input, textarea,button": {
     fontFamily: "Roboto",
     fontWeight: 400,
+  },
+
+  button: {
+    cursor: "pointer",
   },
 })

@@ -7,14 +7,13 @@ import { useMediaQuery } from "react-responsive"
 import { GetStaticProps } from "next"
 import { stripe } from "../lib/stripe"
 import Stripe from "stripe"
+import { CartButton } from "../components/CartButton"
+import { useCart } from "../hooks/useCart"
+import { IProduct } from "../contexts/CartContext"
+import { MouseEvent } from "react"
 
 interface HomeProps {
-  products: {
-    id: string
-    name: string
-    imageUrl: string
-    price: string
-  }[]
+  products: IProduct[]
 }
 
 export default function Home({ products }: HomeProps) {
@@ -28,6 +27,16 @@ export default function Home({ products }: HomeProps) {
     },
   })
 
+  const { addToCart, checkIfItemAlreadyExists } = useCart()
+
+  function handleAddToCart(
+    e: MouseEvent<HTMLButtonElement>,
+    product: IProduct
+  ) {
+    e.preventDefault()
+    addToCart(product)
+  }
+
   return (
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map((product) => {
@@ -40,8 +49,15 @@ export default function Home({ products }: HomeProps) {
             <Product className="keen-slider__slide">
               <Image src={product.imageUrl} width={520} height={500} alt="" />
               <footer>
-                <strong>{product.name}</strong>
-                <span> {product.price}</span>
+                <div>
+                  <strong>{product.name}</strong>
+                  <span> {product.price}</span>
+                </div>
+                <CartButton
+                  color="green"
+                  onClick={(e) => handleAddToCart(e, product)}
+                  disabled={checkIfItemAlreadyExists(product.id)}
+                />
               </footer>
             </Product>
           </Link>
@@ -67,6 +83,8 @@ export const getStaticProps: GetStaticProps = async () => {
         style: "currency",
         currency: "BRL",
       }).format(price.unit_amount! / 100),
+      numberPrice: price.unit_amount! / 100,
+      defaultPriceId: price.id,
     }
   })
 
@@ -74,6 +92,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       products,
     },
-    revalidate: 60 * 60 * 2, // 2 hours
+    revalidate: 60 * 60 * 2, // 2 hours, tudo que tá dentro do return é um json
   }
 }
