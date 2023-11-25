@@ -18,7 +18,7 @@ export const ProductContainer = styled("main", {
 export const ImageContainer = styled("div", {
   width: "100%",
   maxWidth: 400,
-  height: 450,
+  height: 400,
   background: "White",
   borderRadius: 8,
   padding: "0.25rem",

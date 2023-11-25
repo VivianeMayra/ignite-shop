@@ -31,6 +31,8 @@ export const CartButtonContainer = styled("button", {
         color: "$gray350",
       },
       green: {
+        color: "$white",
+        background: "$green",
         marginRight: "0px",
       },
     },

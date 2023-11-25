@@ -5,7 +5,7 @@ export const HomeContainer = styled("main", {
   width: "100%",
   maxWidth: "calc(100vw - ((100vw - 1180px) /2))",
   marginLeft: "auto",
-  minHeight: 450,
+  minHeight: 400,
 })
 
 export const Product = styled("div", {
@@ -14,7 +14,7 @@ export const Product = styled("div", {
   cursor: "pointer",
   position: "relative",
   overflow: "hidden",
-  minHeight: 540,
+  minHeight: 400,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

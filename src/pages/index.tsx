@@ -18,7 +18,7 @@ interface HomeProps {
 
 export default function Home({ products }: HomeProps) {
   const isMobile = useMediaQuery({ maxWidth: 480 })
-  const slideCount = isMobile ? 1 : 3
+  const slideCount = isMobile ? 1 : 2
   const slideSpacing = isMobile ? 15 : 48
   const [sliderRef] = useKeenSlider({
     slides: {
@@ -47,7 +47,7 @@ export default function Home({ products }: HomeProps) {
             prefetch={false}
           >
             <Product className="keen-slider__slide">
-              <Image src={product.imageUrl} width={520} height={500} alt="" />
+              <Image src={product.imageUrl} width={350} height={350} alt="" />
               <footer>
                 <div>
                   <strong>{product.name}</strong>
