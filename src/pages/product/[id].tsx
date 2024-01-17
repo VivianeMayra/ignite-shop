@@ -46,14 +46,25 @@ export default function Product({ product }: ProductProps) {
   )
 }
 
-//quais são as páginas e parâmetros que queremos criar as versões estáticas
+// Quais são as páginas e parâmetros que queremos criar as versões estáticas
 export const getStaticPaths: GetStaticPaths = async () => {
+  // IDs dos produtos
+  const productIds = [
+    "prod_NRlOqJsPWvGfgi",
+    "prod_NRlNQ5iBdEReZS",
+    "prod_NRlMSRFM1fsObR",
+    "prod_NRlK86bcw0J6ZP",
+    "prod_NRlHcW0ad0wcSo",
+    "prod_NRkySx8v35OJnZ",
+  ]
+
+  // Crie os caminhos usando os IDs dos produtos
+  const paths = productIds.map((productId) => ({
+    params: { id: productId },
+  }))
+
   return {
-    paths: [
-      {
-        params: { id: "" },
-      },
-    ],
+    paths,
     fallback: true,
   }
 }
