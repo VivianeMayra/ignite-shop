@@ -14,11 +14,11 @@
     "@stitches/react": "^1.2.8",
     "axios": "^1.3.4",
     "keen-slider": "^6.8.5",
-    "next": "13.2.1",
+    "next": "^14.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-responsive": "^9.0.2",
-    "stripe": "^11.13.0"
+    "stripe": "^14.12.0"
   },
   "devDependencies": {
     "@types/node": "18.14.2",
